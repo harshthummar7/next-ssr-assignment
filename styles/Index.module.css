@@ -1,0 +1,45 @@
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 42px;
+  background-color: #eff3f7;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+}
+
+.main {
+  display: flex;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  align-items: baseline;
+  margin-top: 75px;
+  margin-left: 6vw;
+}
+
+@media only screen and (max-width: 320px) {
+  .content {
+    margin-left: 1vw;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .content {
+    margin-left: 4vw;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .content {
+    margin-left: 6vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .content {
+    margin-right: 9vw;
+    flex-direction: column;
+    margin-left: 10vw;
+    width: 92%;
+  }
+}

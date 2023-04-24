@@ -1,0 +1,218 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 24px;
+  width: 55vw;
+}
+
+.collg {
+  display: flex;
+  width: 100%;
+}
+
+.card {
+  width: 50vw;
+}
+.cardheader {
+  display: flex;
+}
+
+.cardheaderDiv {
+  flex-direction: row;
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+}
+
+.cardbody {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+}
+
+.cardbody:hover {
+  background-color: #f5f2f29b;
+}
+
+.input {
+  border-radius: 15px;
+  width: 30vw;
+  background-color: #f5f2f2;
+  margin-left: 0;
+}
+
+.button {
+  background-color: #f89890;
+  margin-left: 50px;
+  border-color: white;
+}
+.cardbodyDiv {
+  flex-direction: row;
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.square {
+  font-size: 10px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  width: 10vw;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.infoText {
+  overflow: hidden;
+  width: 101px;
+}
+
+.infoText h4 {
+  font-size: 20px;
+}
+
+.infoText p {
+  font-size: 10px;
+}
+
+.circle {
+  width: 38px;
+  height: 38px;
+}
+
+.company {
+  width: 6vw;
+  overflow-x: hidden;
+}
+
+.action {
+  width: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 320px) {
+  .button {
+    width: 31vw;
+  }
+
+  .info {
+    width: 32vw;
+    justify-content: center;
+  }
+
+  .infoText p {
+    height: 4vh;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .button {
+    width: 31vw;
+  }
+  .add {
+    margin-left: -9vw;
+  }
+  .infoText h4 {
+    font-size: 11px !important;
+  }
+  .infoText p {
+    font-size: 6px !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .button {
+    width: 24vw;
+    font-size: 10px !important;
+  }
+  .add {
+    margin-left: -5vw;
+  }
+  .card {
+    width: 100%;
+  }
+
+  .company {
+    width: 28%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .input {
+    width: 42vw;
+    height: 4vh;
+  }
+  .button {
+    width: 20vw;
+    height: 4vh;
+    font-size: 13px;
+  }
+  .add {
+    margin-left: -3vw;
+  }
+  .card {
+    width: 72vw;
+  }
+  .square {
+    font-size: 8px;
+  }
+  .info {
+    width: 32vw;
+    justify-content: center;
+  }
+
+  .circle span {
+    font-size: 12px;
+  }
+  .infoText {
+    width: 40%;
+  }
+  .infoText h4 {
+    font-size: 14px;
+  }
+  .infoText p {
+    font-size: 8px;
+  }
+  .company {
+    width: 37%;
+    font-size: 15px;
+  }
+  .action i {
+    font-size: 13px;
+  }
+}
+
+/* @media only screen and (max-width: 1024px) {
+  .circle {
+    height: 20px;
+  }
+
+  .circle span {
+    font-size: 15px;
+  }
+} */
+
+@media only screen and (max-width: 1440px) {
+  .infoText {
+    margin-left: 1vw;
+  }
+  .circle {
+    width: 22px;
+    height: 22px;
+  }
+
+  .circle span {
+    font-size: 13px;
+  }
+}

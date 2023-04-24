@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  height: 100%;
+  /* overflow:scroll initial; */
+  width: 50px;
+  align-items: center;
+  background-color: #f89880;
+  flex-direction: column;
+  position: fixed;
+}
+
+.main div:first-child {
+  margin-bottom: 7vh;
+  margin-top: 1vh;
+}
+
+.div {
+  margin-top: 35px;
+}
+
+@media only screen and (max-width: 320px) {
+  .main {
+    width: 9vw;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .main {
+    width: 11vw;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .main {
+    width: 13vw;
+  }
+}

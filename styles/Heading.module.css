@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    margin-bottom: 35px;
+}
+
+.main div{
+    background-color: #F89880;
+    width: 22px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.main label{
+    margin-left: 10px;
+}
