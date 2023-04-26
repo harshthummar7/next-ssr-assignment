@@ -1,7 +1,6 @@
 .main {
   display: flex;
   height: 100%;
-  /* overflow:scroll initial; */
   width: 50px;
   align-items: center;
   background-color: #f89880;

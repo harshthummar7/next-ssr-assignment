@@ -5,30 +5,19 @@ import { Form, Button } from "react-bootstrap";
 import style from "../styles/Contacts.module.css";
 import Card from "./Card";
 import Heading from "./Heading";
-import localforage from "localforage";
-localforage.config({
-  name: "my-app-db",
-  storeName: "contacts",
-  driver: localforage.LOCALSTORAGE,
-  version: 1,
-});
 
-export default function Contacts({ ListData }) {
+export default function Contacts({ listData }) {
   const router = useRouter();
-  const [list, setList] = useState(ListData || []);
-  const [mainList, setMainList] = useState([]);
+  const [list, setList] = useState(listData || []);
+  const [mainList, setMainList] = useState(listData || []);
   const [cardData, setCardData] = useState({});
   const [colorName, setColorName] = useState("");
   const [isHovering, setIsHovering] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  // function fetchContact() {
-  //   setList(ListData || []);
-  //   console.log(list);
-  // }
 
   const filterFunction = (userInput) => {
     if (searchInput === "") {
-      setMainList(ListData);
+      setList(mainList);
       return;
     }
     const regex = new RegExp(userInput, "i");
@@ -38,7 +27,6 @@ export default function Contacts({ ListData }) {
       });
 
       setList(filteredNames);
-      console.log(filteredNames);
     }
   };
 
@@ -46,38 +34,35 @@ export default function Contacts({ ListData }) {
     filterFunction(searchInput);
   }, [searchInput]);
 
-  // useEffect(() => {
-  //   fetchContact();
-  // }, []);
-
   const editList = (index) => {
     router.push(`/edit-list/${index}`);
   };
 
-  const deleteList = (index) => {
-    // localStorage.setItem(
-    //   "contacts",
-    //   JSON.stringify([...list.slice(0, index), ...list.slice(index + 1)])
-    // );
-    // setList([...list.slice(0, index), ...list.slice(index + 1)]);
-    //localStorage.removeItem(`${index}`);
+  const deleteList = async (index) => {
     const updatedList = list.filter((data, i) => i !== index);
-    localforage.setItem("contacts", updatedList);
     setList(updatedList);
-    localforage.removeItem(`${index}`);
+    setMainList(updatedList);
+    const contactsData = JSON.stringify(updatedList);
+    const res = await fetch("http://localhost:3000/api/hello", {
+      method: "POST",
+      body: contactsData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const msg = await res.json();
+    console.log(msg);
   };
 
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
   const handleMouseOver = (i) => {
-    //const data = JSON.parse(localStorage.getItem("contacts"));
-    setCardData(ListData[i]);
-    localforage.getItem(`${i}`).then((color) => {
-      setColorName(color);
-    });
+    setCardData(listData[i]);
+    setColorName(listData[i].color);
     setIsHovering(true);
   };
+
   const handleMouseOut = () => {
     setCardData({});
     setIsHovering(false);
@@ -92,11 +77,11 @@ export default function Contacts({ ListData }) {
     "indigo",
     "violet",
   ];
+
   let index = 0;
-  const clr = (i) => {
+  const colorFunction = (i) => {
     const color = colors[index];
     index = (index + 1) % colors.length;
-    localforage.setItem(`${i}`, color);
     return color;
   };
 
@@ -154,7 +139,7 @@ export default function Contacts({ ListData }) {
                           <div
                             className={`${style.circle} rounded-circle text-white d-flex align-items-center justify-content-center mr-3`}
                             style={{
-                              backgroundColor: clr(i),
+                              backgroundColor: colorFunction(i),
                             }}
                           >
                             <span className="h4 font-weight-bold m-0">

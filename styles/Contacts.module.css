@@ -193,16 +193,6 @@
   }
 }
 
-/* @media only screen and (max-width: 1024px) {
-  .circle {
-    height: 20px;
-  }
-
-  .circle span {
-    font-size: 15px;
-  }
-} */
-
 @media only screen and (max-width: 1440px) {
   .infoText {
     margin-left: 1vw;
