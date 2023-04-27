@@ -43,7 +43,7 @@ export default function Contacts({ listData }) {
     setList(updatedList);
     setMainList(updatedList);
     const contactsData = JSON.stringify(updatedList);
-    const res = await fetch("http://localhost:3000/api/hello", {
+    const res = await fetch(`${process.env.BASE_URL}/api/hello`, {
       method: "POST",
       body: contactsData,
       headers: {
