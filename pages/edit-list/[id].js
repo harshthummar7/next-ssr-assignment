@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
   if (process.env.NODE_ENV === "development") {
     apiUrl = "http://localhost:3000";
   } else {
-    apiUrl = context.req.url;
+    apiUrl = `https://${process.env.VERCEL_URL}`;
   }
   const res = await fetch(`${apiUrl}/api/hello`);
   const { listData } = await res.json();
