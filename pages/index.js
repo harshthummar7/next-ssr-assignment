@@ -20,7 +20,14 @@ export default function Home({ listData }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`${process.env.BASE_URL}/api/hello`);
+  let apiUrl;
+  if (process.env.NODE_ENV === "development") {
+    apiUrl = "http://localhost:3000";
+  } else {
+    apiUrl = context.req.url;
+  }
+
+  const res = await fetch(`${apiUrl}/api/hello`);
   const { listData } = await res.json();
 
   return {

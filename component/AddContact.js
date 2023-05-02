@@ -45,7 +45,7 @@ export default function AddContact({ listData }) {
     list.push(contact);
     setContect(list);
     const contactsData = JSON.stringify(list);
-    const res = await fetch(`${process.env.BASE_URL}/api/hello`, {
+    const res = await fetch(`/api/hello`, {
       method: "POST",
       body: contactsData,
       headers: {
